@@ -9,30 +9,20 @@ prismaClient.$transaction( async (tx) =>{}, { maxWait: 5000, timeout: 10000,
 })
 import * as web3 from '@solana/web3.js'
 import nacl from 'tweetnacl';
-
 import jwt from 'jsonwebtoken'
 import {S3Client,GetObjectCommand, PutObjectCommand,} from '@aws-sdk/client-s3'
 import { authMiddleWare } from '../middleware';
 import {getSignedUrl} from '@aws-sdk/s3-request-presigner'
-import {createPresignedPost} from '@aws-sdk/s3-presigned-post'
-import { S3 } from 'aws-sdk';
 import { createInput } from '../types';
-import { url } from 'inspector';
-import z from 'zod'
-import { response } from 'express';
-import { count } from 'console';
-import { TOTAL_DECIMALS } from '../total_decimal';
-import { TIMEOUT } from 'dns';
-import { Interface } from 'readline';
-// sigin with wallet
-// signing a message
+import dotenv from 'dotenv'
+dotenv.config()
 
 const S3_BUCKET = 'ashutoshadbucket';
 const REGION = 'eu-north-1';
 const s3Client=new S3Client({
   credentials:{
     accessKeyId:"AKIAQ3EGURRTTOGI3MJW",
-    secretAccessKey:"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"
+    secretAccessKey:`${process.env.AWS_SECRET_KEY}`
   },
   region:"eu-north-1"
 });
