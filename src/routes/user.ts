@@ -21,7 +21,7 @@ const S3_BUCKET = 'ashutoshadbucket';
 const REGION = 'eu-north-1';
 const s3Client=new S3Client({
   credentials:{
-    accessKeyId:"AKIAQ3EGURRTTOGI3MJW",
+    accessKeyId:`${process.env.AWS_ACCESS_ID}`,
     secretAccessKey:`${process.env.AWS_SECRET_KEY}`
   },
   region:"eu-north-1"
