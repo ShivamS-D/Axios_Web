@@ -42,7 +42,7 @@ const REGION = 'eu-north-1';
 
 aws.config.update({
     accessKeyId: 'AKIAQ3EGURRTTOGI3MJW',
-    secretAccessKey:'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',
+    secretAccessKey:`${process.env.AWS_SECRET_KEY}`,
     region: REGION
 });
 
